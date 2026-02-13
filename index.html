@@ -7,12 +7,14 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
     <style>
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        
         body { 
             font-family: 'Inter', sans-serif; 
             text-align: center; 
             background: linear-gradient(45deg, #e0eafc, #cfdef3);
             min-height: 100vh; margin: 0; padding: 20px; display: flex; align-items: center; justify-content: center;
         }
+
         .container { 
             max-width: 450px; width: 90%;
             background: rgba(255, 255, 255, 0.4); 
@@ -24,6 +26,22 @@
             border-top: 10px solid #4a0404;
             animation: fadeInUp 0.8s ease-out;
         }
+
+        /* Stili i Search Bar */
+        .search-container { margin-bottom: 25px; }
+        #searchInput {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.5);
+            font-size: 15px;
+            outline: none;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        #searchInput:focus { border-color: #0d3b66; background: rgba(255,255,255,0.8); }
+
         .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px; margin: 15px 0; text-decoration: none; color: white; border-radius: 15px; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; border: none; font-family: inherit; }
         .btn-unitutor { background-color: #0d3b66; } 
         .btn-anatomy { background-color: #1b4332; }
@@ -40,8 +58,14 @@
         <h1>📚 MedHub: Biblioteca digitale <br> Medicina e Chirurgia (Unizkm-Tor Vergata/Rome)</h1>
         <div class="author">A cura di <strong>"ENTELA BOÇI"</strong></div>
         
-        <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" class="button btn-unitutor">📖 Unitutor Zanichelli</a>
-        <a href="https://mega.nz/folder/xqZzAByS#5CEmKAuqn7b21_LBF1f2_g" target="_blank" class="button btn-anatomy">🦴 Interactive 3D Anatomy</a>
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterButtons()" placeholder="Cerca un libro o materiale...">
+        </div>
+
+        <div id="buttonList">
+            <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" class="button btn-unitutor">📖 Unitutor Zanichelli</a>
+            <a href="https://mega.nz/folder/xqZzAByS#5CEmKAuqn7b21_LBF1f2_g" target="_blank" class="button btn-anatomy">🦴 Interactive 3D Anatomy</a>
+        </div>
         
         <div class="badge">#MedHubDeveloper 🚀</div>
 
@@ -51,24 +75,37 @@
     </div>
 
     <script>
+        // Funksioni i kërkimit
+        function filterButtons() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let buttons = document.getElementById('buttonList').getElementsByTagName('a');
+            
+            for (let i = 0; i < buttons.length; i++) {
+                let text = buttons[i].textContent || buttons[i].innerText;
+                if (text.toLowerCase().indexOf(input) > -1) {
+                    buttons[i].style.display = "";
+                } else {
+                    buttons[i].style.display = "none";
+                }
+            }
+        }
+
+        // Funksioni Share
         function shareLink() {
             if (navigator.share) {
                 navigator.share({
                     title: 'MedHub - Entela Boçi',
-                    text: 'Guarda questa biblioteca digitale per Medicina e Chirurgia!',
+                    text: 'Guarda questa biblioteca digitale per Medicina!',
                     url: 'https://entela53.github.io/archivio-medicina/'
-                }).then(() => {
-                    console.log('Grazie per aver condiviso!');
-                })
-                .catch((error) => console.log('Errore nella condivisione', error));
+                }).catch((error) => console.log('Error', error));
             } else {
-                // Nëse browseri nuk e suporton menunë e shpërndarjes, hap direkt WhatsApp-in
-                window.open('https://api.whatsapp.com/send?text=Guarda%20questa%20biblioteca:%20https://entela53.github.io/archivio-medicina/', '_blank');
+                window.open('https://api.whatsapp.com/send?text=https://entela53.github.io/archivio-medicina/', '_blank');
             }
         }
     </script>
 </body>
 </html>
+
 
 
 
