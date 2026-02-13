@@ -1,45 +1,48 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedHub - Entela Boçi</title>
     <style>
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; text-align: center; background-color: #f4f7f6; padding: 20px; color: #1a1a1a; }
-        .container { max-width: 480px; margin: auto; background: #ffffff; padding: 40px 30px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); border-top: 12px solid #e74c3c; }
+        body { font-family: 'Inter', sans-serif; text-align: center; background-color: #f0f2f5; padding: 20px; color: #1a1a1a; }
+        .container { max-width: 480px; margin: auto; background: #ffffff; padding: 40px 30px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border-top: 12px solid #d63031; }
         
         h1 { color: #2c3e50; font-size: 20px; margin-bottom: 8px; font-weight: 800; line-height: 1.4; }
-        .author { color: #27ae60; font-weight: 600; font-size: 16px; margin-bottom: 35px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .author { color: #27ae60; font-weight: 700; font-size: 17px; margin-bottom: 35px; text-transform: uppercase; }
         
-        .button { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 18px; margin: 15px 0; text-decoration: none; color: white; border-radius: 16px; font-weight: 700; font-size: 16px; transition: all 0.3s ease; }
+        /* Ngjyra të forta dhe vibrante */
+        .button { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 20px; margin: 15px 0; text-decoration: none; color: white; border-radius: 18px; font-weight: 800; font-size: 17px; transition: 0.3s; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
         
-        .btn-sbobine { background: linear-gradient(135deg, #ff5f6d, #ffc371); box-shadow: 0 4px 15px rgba(255, 95, 109, 0.3); } 
-        .btn-libri { background: linear-gradient(135deg, #2193b0, #6dd5ed); box-shadow: 0 4px 15px rgba(33, 147, 176, 0.3); }    
-        .btn-email { background: linear-gradient(135deg, #11998e, #38ef7d); box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3); }
+        .btn-unitutor { background-color: #007bff; } /* Blu e fortë */
+        .btn-anatomy { background-color: #28a745; } /* Jeshile e fortë */
+        .btn-sbobine { background-color: #dc3545; } /* E kuqe e fortë */
         
-        .button:active { transform: scale(0.97); }
-        
-        .description { font-size: 13px; color: #636e72; margin-top: -8px; margin-bottom: 12px; line-height: 1.5; padding: 0 5px; }
-        .badge { display: inline-block; padding: 6px 15px; background: #f0f2f5; border-radius: 20px; font-size: 12px; font-weight: 700; color: #7f8c8d; margin-top: 25px; border: 1px solid #e1e4e8; }
+        .button:hover { transform: scale(1.02); opacity: 0.9; }
+        .description { font-size: 14px; color: #2d3436; margin-top: -8px; margin-bottom: 12px; line-height: 1.5; font-weight: 500; }
+        .instruction { font-size: 12.5px; color: #e17055; font-weight: bold; margin-top: -5px; margin-bottom: 15px; border-left: 3px solid #e17055; padding-left: 10px; text-align: left; }
+        .badge { display: inline-block; padding: 8px 20px; background: #2d3436; border-radius: 20px; font-size: 13px; font-weight: bold; color: white; margin-top: 25px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📚 MedHub: Biblioteca digitale <br> Medicina e Chirurgia (Unizkm - Tor Vergata)</h1>
+        <h1>📚 MedHub: Biblioteca digitale <br> Medicina e Chirurgia (Unizkm-Tor Vergata)</h1>
         <div class="author">A cura di Entela Boçi</div>
         
-        <a href="#" class="button btn-sbobine">📖 Sbobine 2026</a>
-        <p class="description">Accedi alle trascrizioni aggiornate e agli appunti delle lezioni.</p>
+        <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" class="button btn-unitutor">📖 Unitutor Zanichelli</a>
+        <p class="description">Risorsa fondamentale per i test d'ingresso: teoria e quiz pratici.</p>
 
-        <a href="#" class="button btn-libri">📑 Libri di Testo</a>
-        <p class="description">Manuali PDF, atlanti e risorse accademiche per lo studio.</p>
+        <a href="https://mega.nz/folder/xqZzAByS#5CEmKAuqn7b21_LBF1f2_g" target="_blank" class="button btn-anatomy">🦴 Interactive 3D Anatomy</a>
+        <p class="description">Software avanzato per l'esplorazione 3D del corpo umano.</p>
+        <p class="instruction">⚠️ Istruzioni: Scarica la cartella sul PC ed esegui il file .exe.</p>
 
-        <a href="mailto:entela.boci7@gmail.com" class="button btn-email">✉️ Contattami via Email</a>
-        <p class="description">Scrivimi per collaborare o inviare nuovi materiali didattici.</p>
+        <a href="#" class="button btn-sbobine">📑 Sbobine 2026</a>
+        <p class="description">Archivio in fase di aggiornamento.</p>
         
         <div class="badge">#MedHubDeveloper 🚀</div>
     </div>
 </body>
 </html>
+
 
 
