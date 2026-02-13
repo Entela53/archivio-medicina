@@ -27,30 +27,28 @@
             animation: fadeInUp 0.8s ease-out;
         }
 
-        /* Stili i Search Bar */
         .search-container { margin-bottom: 25px; }
         #searchInput {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 12px;
+            width: 100%; padding: 12px 15px; border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.6);
             background: rgba(255,255,255,0.5);
-            font-size: 15px;
-            outline: none;
-            box-sizing: border-box;
-            transition: 0.3s;
+            font-size: 15px; outline: none; box-sizing: border-box; transition: 0.3s;
         }
-        #searchInput:focus { border-color: #0d3b66; background: rgba(255,255,255,0.8); }
 
         .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px; margin: 15px 0; text-decoration: none; color: white; border-radius: 15px; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; border: none; font-family: inherit; }
         .btn-unitutor { background-color: #0d3b66; } 
         .btn-anatomy { background-color: #1b4332; }
-        .btn-share { background-color: #55acee; margin-top: 30px; font-size: 14px; padding: 12px; } 
+        .btn-share { background-color: #55acee; margin-top: 25px; font-size: 14px; padding: 12px; } 
         
         .button:active { transform: scale(0.95); }
         h1 { font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px; }
         .author { color: #2d6a4f; font-size: 14px; margin-bottom: 30px; }
-        .badge { background: #1a1a1a; color: white; padding: 8px 20px; border-radius: 20px; font-size: 12px; display: inline-block; }
+        
+        /* Stili për E-mailin në fund */
+        .footer-email { margin-top: 20px; font-size: 13px; color: #444; }
+        .footer-email a { color: #0d3b66; text-decoration: none; font-weight: bold; }
+        
+        .badge { background: #1a1a1a; color: white; padding: 8px 20px; border-radius: 20px; font-size: 12px; display: inline-block; margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -72,32 +70,29 @@
         <button onclick="shareLink()" class="button btn-share">
             📢 Condividi con i colleghi
         </button>
+
+        <div class="footer-email">
+            ✉️ Contatto: <a href="mailto:entela.boci7@gmail.com">entela.boci7@gmail.com</a>
+        </div>
     </div>
 
     <script>
-        // Funksioni i kërkimit
         function filterButtons() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let buttons = document.getElementById('buttonList').getElementsByTagName('a');
-            
             for (let i = 0; i < buttons.length; i++) {
                 let text = buttons[i].textContent || buttons[i].innerText;
-                if (text.toLowerCase().indexOf(input) > -1) {
-                    buttons[i].style.display = "";
-                } else {
-                    buttons[i].style.display = "none";
-                }
+                buttons[i].style.display = text.toLowerCase().includes(input) ? "" : "none";
             }
         }
 
-        // Funksioni Share
         function shareLink() {
             if (navigator.share) {
                 navigator.share({
                     title: 'MedHub - Entela Boçi',
                     text: 'Guarda questa biblioteca digitale per Medicina!',
                     url: 'https://entela53.github.io/archivio-medicina/'
-                }).catch((error) => console.log('Error', error));
+                });
             } else {
                 window.open('https://api.whatsapp.com/send?text=https://entela53.github.io/archivio-medicina/', '_blank');
             }
@@ -105,7 +100,3 @@
     </script>
 </body>
 </html>
-
-
-
-
