@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedHub - Entela Boçi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
     <style>
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -14,6 +15,7 @@
             --text-color: #1a1a1a;
             --input-bg: rgba(255, 255, 255, 0.5);
             --email-color: #444;
+            --accent-color: #4a0404;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -37,59 +39,96 @@
             max-width: 450px; width: 90%;
             background: var(--container-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             padding: 40px 25px; border-radius: 35px; border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2); border-top: 10px solid #4a0404;
-            animation: fadeInUp 0.8s ease-out; transition: background 0.5s ease;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2); border-top: 10px solid var(--accent-color);
+            animation: fadeInUp 0.8s ease-out; transition: 0.5s;
         }
+
+        /* Mesazhi i Mirëseardhjes */
+        #greeting { font-size: 14px; font-weight: 600; color: #2d6a4f; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
 
         #searchInput {
             width: 100%; padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);
-            background: var(--input-bg); color: var(--text-color); font-size: 15px; outline: none; box-sizing: border-box; transition: 0.3s;
+            background: var(--input-bg); color: var(--text-color); font-size: 15px; outline: none; box-sizing: border-box; transition: 0.3s; margin-bottom: 20px;
         }
 
-        .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px; margin: 15px 0; text-decoration: none; color: white; border-radius: 15px; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: none; font-family: inherit; }
-        .btn-unitutor { background-color: #0d3b66; } .btn-anatomy { background-color: #1b4332; }
+        /* Butonat me Efekt Glow dhe Hover */
+        .button { 
+            display: flex; align-items: center; justify-content: center; gap: 12px; 
+            width: 100%; padding: 18px; margin: 15px 0; text-decoration: none; color: white; 
+            border-radius: 15px; font-weight: 700; transition: 0.4s; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: none; font-family: inherit; 
+        }
+
+        .btn-unitutor { background-color: #0d3b66; } 
+        .btn-anatomy { background-color: #1b4332; }
         .btn-share { background-color: #55acee; margin-top: 25px; font-size: 14px; padding: 12px; } 
-        
-        h1 { font-size: 19px; font-weight: 800; color: var(--text-color); margin-bottom: 10px; }
-        .author { color: #2d6a4f; font-size: 14px; margin-bottom: 30px; }
+
+        /* HOVER EFFECTS */
+        .button:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            filter: brightness(1.1);
+        }
+        .btn-unitutor:hover { box-shadow: 0 0 20px rgba(13, 59, 102, 0.6); }
+        .btn-anatomy:hover { box-shadow: 0 0 20px rgba(27, 67, 50, 0.6); }
+
+        .button:active { transform: scale(0.95); }
+
+        h1 { font-size: 19px; font-weight: 800; color: var(--text-color); margin-bottom: 5px; line-height: 1.3; }
+        .author { color: var(--text-color); opacity: 0.8; font-size: 13px; margin-bottom: 25px; }
         .footer-email { margin-top: 20px; font-size: 13px; color: var(--email-color); }
         .footer-email a { color: #55acee; text-decoration: none; font-weight: bold; }
         .badge { background: #1a1a1a; color: white; padding: 8px 20px; border-radius: 20px; font-size: 12px; display: inline-block; margin-top: 15px; }
-
-        /* Stili i ri për Numëruesin */
         .visitor-counter { margin-top: 30px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .visitor-counter p { font-size: 11px; color: var(--email-color); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .visitor-counter p { font-size: 10px; color: var(--email-color); margin-bottom: 5px; opacity: 0.7; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📚 MedHub: Biblioteca digitale <br> Medicina e Chirurgia (Unizkm-Tor Vergata/Rome)</h1>
-        <div class="author">A cura di <strong>"ENTELA BOÇI"</strong></div>
+        <div id="greeting">Caricamento...</div>
         
-        <div class="search-container">
-            <input type="text" id="searchInput" onkeyup="filterButtons()" placeholder="Cerca un libro o materiale...">
-        </div>
+        <h1>📚 MedHub: Biblioteca digitale <br> Medicina e Chirurgia (Unizkm)</h1>
+        <div class="author">Project by <strong>ENTELA BOÇI</strong></div>
+        
+        <input type="text" id="searchInput" onkeyup="filterButtons()" placeholder="Cerca materiale...">
 
         <div id="buttonList">
-            <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" class="button btn-unitutor">📖 Unitutor Zanichelli</a>
-            <a href="https://mega.nz/folder/xqZzAByS#5CEmKAuqn7b21_LBF1f2_g" target="_blank" class="button btn-anatomy">🦴 Interactive 3D Anatomy</a>
+            <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" class="button btn-unitutor">
+                <i class="fas fa-book-open"></i> Unitutor Zanichelli
+            </a>
+            <a href="https://mega.nz/folder/xqZzAByS#5CEmKAuqn7b21_LBF1f2_g" target="_blank" class="button btn-anatomy">
+                <i class="fas fa-dna"></i> Interactive 3D Anatomy
+            </a>
         </div>
         
         <div class="badge">#MedHubDeveloper 🚀</div>
 
-        <button onclick="shareLink()" class="button btn-share">📢 Condividi con i colleghi</button>
+        <button onclick="shareLink()" class="button btn-share">
+            <i class="fas fa-paper-plane"></i> Condividi con i colleghi
+        </button>
 
         <div class="footer-email">
-            ✉️ Contatto: <a href="mailto:entela.boci7@gmail.com">entela.boci7@gmail.com</a>
+            <i class="fas fa-envelope"></i> <a href="mailto:entela.boci7@gmail.com">entela.boci7@gmail.com</a>
         </div>
 
         <div class="visitor-counter">
-            <p>Visite Totali</p>
+            <p>VISITE TOTALI</p>
             <a href="https://www.freecounterstat.com" title="hit counter"><img src="https://counter11.optistats.ovh/private/freecounterstat.php?c=9m8k7ubx178z6m9ubc8xujf6a7ur2uw7" border="0" title="hit counter" alt="hit counter"></a>
         </div>
     </div>
 
     <script>
+        // Funksioni për mesazhin sipas orës
+        function setGreeting() {
+            const hour = new Date().getHours();
+            let message = "";
+            if (hour >= 5 && hour < 13) message = "☀️ Buongiorno, Collega!";
+            else if (hour >= 13 && hour < 18) message = "☕ Buon Pomeriggio!";
+            else message = "🌙 Buona Serata e Buon Studio!";
+            document.getElementById('greeting').innerText = message;
+        }
+        setGreeting();
+
         function filterButtons() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let buttons = document.getElementById('buttonList').getElementsByTagName('a');
