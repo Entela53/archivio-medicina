@@ -10,13 +10,13 @@
         body { 
             font-family: 'Inter', sans-serif; 
             text-align: center; 
-            background: linear-gradient(45deg, #e0eafc, #cfdef3); /* Sfond i ri që dallohet */
+            background: linear-gradient(45deg, #e0eafc, #cfdef3);
             min-height: 100vh; margin: 0; padding: 20px; display: flex; align-items: center; justify-content: center;
         }
         .container { 
             max-width: 450px; width: 90%;
-            background: rgba(255, 255, 255, 0.4); /* Transparenca */
-            backdrop-filter: blur(20px); /* Efekti i xhamit */
+            background: rgba(255, 255, 255, 0.4); 
+            backdrop-filter: blur(20px); 
             -webkit-backdrop-filter: blur(20px);
             padding: 40px 25px; border-radius: 35px;
             border: 1px solid rgba(255, 255, 255, 0.5);
@@ -24,23 +24,51 @@
             border-top: 10px solid #4a0404;
             animation: fadeInUp 0.8s ease-out;
         }
-        .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px; margin: 15px 0; text-decoration: none; color: white; border-radius: 15px; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .btn-unitutor { background-color: #0d3b66; } .btn-anatomy { background-color: #1b4332; }
+        .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px; margin: 15px 0; text-decoration: none; color: white; border-radius: 15px; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); cursor: pointer; border: none; font-family: inherit; }
+        .btn-unitutor { background-color: #0d3b66; } 
+        .btn-anatomy { background-color: #1b4332; }
+        .btn-share { background-color: #55acee; margin-top: 30px; font-size: 14px; padding: 12px; } 
+        
         .button:active { transform: scale(0.95); }
-        h1 { font-size: 19px; font-weight: 800; color: #1a1a1a; }
+        h1 { font-size: 19px; font-weight: 800; color: #1a1a1a; margin-bottom: 10px; }
         .author { color: #2d6a4f; font-size: 14px; margin-bottom: 30px; }
-        .badge { background: #1a1a1a; color: white; padding: 8px 20px; border-radius: 20px; font-size: 12px; margin-top: 20px; display: inline-block; }
+        .badge { background: #1a1a1a; color: white; padding: 8px 20px; border-radius: 20px; font-size: 12px; display: inline-block; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>📚 MedHub: Biblioteca digitale <br> Medicina e Chirurgia (Unizkm-Tor Vergata/Rome)</h1>
         <div class="author">A cura di <strong>"ENTELA BOÇI"</strong></div>
+        
         <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" class="button btn-unitutor">📖 Unitutor Zanichelli</a>
         <a href="https://mega.nz/folder/xqZzAByS#5CEmKAuqn7b21_LBF1f2_g" target="_blank" class="button btn-anatomy">🦴 Interactive 3D Anatomy</a>
+        
         <div class="badge">#MedHubDeveloper 🚀</div>
+
+        <button onclick="shareLink()" class="button btn-share">
+            📢 Condividi con i colleghi
+        </button>
     </div>
+
+    <script>
+        function shareLink() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'MedHub - Entela Boçi',
+                    text: 'Guarda questa biblioteca digitale per Medicina e Chirurgia!',
+                    url: 'https://entela53.github.io/archivio-medicina/'
+                }).then(() => {
+                    console.log('Grazie per aver condiviso!');
+                })
+                .catch((error) => console.log('Errore nella condivisione', error));
+            } else {
+                // Nëse browseri nuk e suporton menunë e shpërndarjes, hap direkt WhatsApp-in
+                window.open('https://api.whatsapp.com/send?text=Guarda%20questa%20biblioteca:%20https://entela53.github.io/archivio-medicina/', '_blank');
+            }
+        }
+    </script>
 </body>
 </html>
+
 
 
