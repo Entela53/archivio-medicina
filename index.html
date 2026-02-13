@@ -5,24 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedHub - Entela Boçi</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; text-align: center; background-color: #f4f7f9; padding: 20px; }
-        .container { max-width: 500px; margin: auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; font-size: 26px; margin-bottom: 5px; }
-        .author { color: #27ae60; font-weight: bold; font-size: 18px; margin-bottom: 30px; }
-        .button { display: block; width: 100%; padding: 15px; margin: 12px 0; text-decoration: none; color: white; border-radius: 12px; font-weight: bold; font-size: 18px; }
-        .btn-red { background-color: #e74c3c; } 
-        .btn-blue { background-color: #3498db; }    
-        .btn-green { background-color: #27ae60; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f8f9fa; padding: 20px; color: #333; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 35px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-top: 10px solid #e74c3c; }
+        h1 { color: #2c3e50; font-size: 22px; margin-bottom: 5px; line-height: 1.4; }
+        .author { color: #27ae60; font-weight: 600; font-size: 17px; margin-bottom: 30px; }
+        .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; margin: 15px 0; text-decoration: none; color: white; border-radius: 12px; font-weight: bold; font-size: 17px; transition: 0.3s; }
+        .btn-sbobine { background-color: #e74c3c; } 
+        .btn-libri { background-color: #3498db; }    
+        .btn-email { background-color: #2ecc71; }
+        .button:hover { opacity: 0.9; transform: scale(1.02); }
+        .description { font-size: 14px; color: #7f8c8d; margin-top: -10px; margin-bottom: 10px; text-align: center; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>MedHub: Biblioteca Digitale</h1>
+        <h1>📚 MedHub: Biblioteca digitale <br> Unizkm - Tor Vergata</h1>
         <div class="author">A cura di Entela Boçi</div>
         
-        <a href="#" class="button btn-red">📚 Sbobine 2026</a>
-        <a href="#" class="button btn-blue">📖 Libri di Testo</a>
-        <a href="mailto:entela.boci7@gmail.com" class="button btn-green">✉️ Contattami via Email</a>
+        <a href="#" class="button btn-sbobine">📖 Sbobine 2026</a>
+        <p class="description">Accesso alle trascrizioni delle lezioni e appunti revisionati.</p>
+
+        <a href="#" class="button btn-libri">📑 Libri di Testo</a>
+        <p class="description">Manuali, atlanti e risorse accademiche in formato PDF.</p>
+
+        <a href="mailto:entela.boci7@gmail.com" class="button btn-email">✉️ Contattami via Email</a>
+        <p class="description">Scrivimi per collaborazioni o invio materiali.</p>
     </div>
 </body>
 </html>
+
