@@ -8,84 +8,93 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
     <style>
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        @keyframes moveShapes { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, 50px); } }
+
         :root {
-            --bg-gradient: linear-gradient(45deg, #e0eafc, #cfdef3);
-            --container-bg: rgba(255, 255, 255, 0.4);
+            --bg-color: #e0eafc;
+            --container-bg: rgba(255, 255, 255, 0.35);
             --text-color: #1a1a1a;
             --input-bg: rgba(255, 255, 255, 0.5);
             --email-color: #444;
-            --accent-color: #4a0404;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-gradient: linear-gradient(45deg, #1a1a2e, #16213e);
-                --container-bg: rgba(0, 0, 0, 0.6);
+                --bg-color: #0f172a;
+                --container-bg: rgba(15, 23, 42, 0.6);
                 --text-color: #ffffff;
                 --input-bg: rgba(255, 255, 255, 0.1);
-                --email-color: #cccccc;
+                --email-color: #cbd5e1;
             }
         }
 
         body { 
             font-family: 'Inter', sans-serif; text-align: center; 
-            background: var(--bg-gradient); background-attachment: fixed;
-            min-height: 100vh; margin: 0; padding: 20px; display: flex; align-items: center; justify-content: center;
-            transition: background 0.5s ease;
+            background-color: var(--bg-color);
+            min-height: 100vh; margin: 0; padding: 20px; 
+            display: flex; align-items: center; justify-content: center;
+            overflow-x: hidden;
+            position: relative;
         }
+
+        /* FORMAT E SFONDIT (Animated Shapes) */
+        .bg-shape {
+            position: fixed; width: 300px; height: 300px; border-radius: 50%;
+            filter: blur(80px); z-index: -1; animation: moveShapes 10s infinite ease-in-out; opacity: 0.6;
+        }
+        .shape1 { background: #4facfe; top: -50px; left: -50px; }
+        .shape2 { background: #f093fb; bottom: -50px; right: -50px; animation-delay: -5s; }
 
         .container { 
-            max-width: 450px; width: 90%;
-            background: var(--container-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            max-width: 450px; width: 95%;
+            background: var(--container-bg); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             padding: 40px 25px; border-radius: 35px; border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2); border-top: 10px solid var(--accent-color);
-            animation: fadeInUp 0.8s ease-out; transition: 0.5s;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15); border-top: 10px solid #4a0404;
+            animation: fadeInUp 0.8s ease-out; position: relative; z-index: 1;
         }
 
-        /* Mesazhi i Mirëseardhjes */
-        #greeting { font-size: 14px; font-weight: 600; color: #2d6a4f; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        #greeting { font-size: 13px; font-weight: 700; color: #1b4332; margin-bottom: 8px; letter-spacing: 1px; }
 
         #searchInput {
-            width: 100%; padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3);
-            background: var(--input-bg); color: var(--text-color); font-size: 15px; outline: none; box-sizing: border-box; transition: 0.3s; margin-bottom: 20px;
+            width: 100%; padding: 14px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.3);
+            background: var(--input-bg); color: var(--text-color); font-size: 15px; outline: none; margin-bottom: 25px; transition: 0.3s;
         }
 
-        /* Butonat me Efekt Glow dhe Hover */
         .button { 
             display: flex; align-items: center; justify-content: center; gap: 12px; 
             width: 100%; padding: 18px; margin: 15px 0; text-decoration: none; color: white; 
-            border-radius: 15px; font-weight: 700; transition: 0.4s; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: none; font-family: inherit; 
+            border-radius: 18px; font-weight: 700; transition: 0.4s; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: none;
+            animation: float 4s infinite ease-in-out;
         }
 
-        .btn-unitutor { background-color: #0d3b66; } 
-        .btn-anatomy { background-color: #1b4332; }
-        .btn-share { background-color: #55acee; margin-top: 25px; font-size: 14px; padding: 12px; } 
+        /* I bëjmë animacionet e butonave të mos jenë të gjithë njësoj */
+        .btn-unitutor { background-color: #0d3b66; animation-delay: 0s; } 
+        .btn-anatomy { background-color: #1b4332; animation-delay: 0.5s; }
+        .btn-share { background-color: #55acee; margin-top: 30px; font-size: 14px; padding: 12px; animation: none; } 
 
-        /* HOVER EFFECTS */
         .button:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            filter: brightness(1.1);
+            transform: translateY(-5px) scale(1.02); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); filter: brightness(1.2);
         }
-        .btn-unitutor:hover { box-shadow: 0 0 20px rgba(13, 59, 102, 0.6); }
-        .btn-anatomy:hover { box-shadow: 0 0 20px rgba(27, 67, 50, 0.6); }
 
-        .button:active { transform: scale(0.95); }
-
-        h1 { font-size: 19px; font-weight: 800; color: var(--text-color); margin-bottom: 5px; line-height: 1.3; }
+        h1 { font-size: 20px; font-weight: 800; color: var(--text-color); margin-bottom: 5px; }
         .author { color: var(--text-color); opacity: 0.8; font-size: 13px; margin-bottom: 25px; }
-        .footer-email { margin-top: 20px; font-size: 13px; color: var(--email-color); }
+        .footer-email { margin-top: 25px; font-size: 13px; color: var(--email-color); }
         .footer-email a { color: #55acee; text-decoration: none; font-weight: bold; }
-        .badge { background: #1a1a1a; color: white; padding: 8px 20px; border-radius: 20px; font-size: 12px; display: inline-block; margin-top: 15px; }
-        .visitor-counter { margin-top: 30px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .visitor-counter p { font-size: 10px; color: var(--email-color); margin-bottom: 5px; opacity: 0.7; }
+        .badge { background: #1a1a1a; color: white; padding: 8px 20px; border-radius: 20px; font-size: 11px; display: inline-block; margin-top: 15px; }
+        
+        .visitor-counter { margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+        .visitor-counter p { font-size: 10px; color: var(--email-color); margin-bottom: 8px; font-weight: bold; }
     </style>
 </head>
 <body>
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+
     <div class="container">
-        <div id="greeting">Caricamento...</div>
+        <div id="greeting">CARICAMENTO...</div>
         
         <h1>📚 MedHub: Biblioteca digitale <br> Medicina e Chirurgia (Unizkm)</h1>
         <div class="author">Project by <strong>ENTELA BOÇI</strong></div>
@@ -94,21 +103,21 @@
 
         <div id="buttonList">
             <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" class="button btn-unitutor">
-                <i class="fas fa-book-open"></i> Unitutor Zanichelli
+                <i class="fas fa-book-medical"></i> Unitutor Zanichelli
             </a>
             <a href="https://mega.nz/folder/xqZzAByS#5CEmKAuqn7b21_LBF1f2_g" target="_blank" class="button btn-anatomy">
-                <i class="fas fa-dna"></i> Interactive 3D Anatomy
+                <i class="fas fa-microscope"></i> Interactive 3D Anatomy
             </a>
         </div>
         
         <div class="badge">#MedHubDeveloper 🚀</div>
 
         <button onclick="shareLink()" class="button btn-share">
-            <i class="fas fa-paper-plane"></i> Condividi con i colleghi
+            <i class="fas fa-share-nodes"></i> Condividi con i colleghi
         </button>
 
         <div class="footer-email">
-            <i class="fas fa-envelope"></i> <a href="mailto:entela.boci7@gmail.com">entela.boci7@gmail.com</a>
+            <i class="fas fa-envelope-open-text"></i> <a href="mailto:entela.boci7@gmail.com">entela.boci7@gmail.com</a>
         </div>
 
         <div class="visitor-counter">
@@ -118,13 +127,12 @@
     </div>
 
     <script>
-        // Funksioni për mesazhin sipas orës
         function setGreeting() {
             const hour = new Date().getHours();
             let message = "";
-            if (hour >= 5 && hour < 13) message = "☀️ Buongiorno, Collega!";
-            else if (hour >= 13 && hour < 18) message = "☕ Buon Pomeriggio!";
-            else message = "🌙 Buona Serata e Buon Studio!";
+            if (hour >= 5 && hour < 13) message = "☀️ BUONGIORNO, COLLEGA!";
+            else if (hour >= 13 && hour < 18) message = "☕ BUON POMERIGGIO!";
+            else message = "🌙 BUONA SERATA E BUON STUDIO!";
             document.getElementById('greeting').innerText = message;
         }
         setGreeting();
@@ -139,11 +147,9 @@
         }
 
         function shareLink() {
-            if (navigator.share) {
-                navigator.share({ title: 'MedHub', text: 'Guarda questa biblioteca!', url: window.location.href });
-            } else {
-                window.open('https://api.whatsapp.com/send?text=' + window.location.href, '_blank');
-            }
+            const shareData = { title: 'MedHub', text: 'Guarda questa biblioteca!', url: window.location.href };
+            if (navigator.share) { navigator.share(shareData); } 
+            else { window.open('https://api.whatsapp.com/send?text=' + window.location.href, '_blank'); }
         }
     </script>
 </body>
