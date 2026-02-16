@@ -99,6 +99,7 @@
     </style>
 </head>
 <body>
+        <button id="theme-toggle" style="position: fixed; top: 15px; right: 15px; z-index: 9999; padding: 12px; border-radius: 50%; border: none; cursor: pointer; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-size: 20px;">🌓</button>
     <div class="bg-shape shape1"></div>
     <div class="bg-shape shape2"></div>
 
@@ -258,5 +259,13 @@
             else { window.open('https://api.whatsapp.com/send?text=' + window.location.href, '_blank'); }
         }
     </script>
+            const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+    if(document.body.style.filter === "invert(1) hue-rotate(180deg)") {
+        document.body.style.filter = "none";
+    } else {
+        document.body.style.filter = "invert(1) hue-rotate(180deg)";
+    }
+});
 </body>
 </html>
