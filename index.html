@@ -258,14 +258,15 @@
             if (navigator.share) { navigator.share(shareData); } 
             else { window.open('https://api.whatsapp.com/send?text=' + window.location.href, '_blank'); }
         }
+            
+                const btn = document.getElementById('theme-toggle');
+    btn.addEventListener('click', () => {
+        if(document.body.style.filter === "invert(1) hue-rotate(180deg)") {
+            document.body.style.filter = "none";
+        } else {
+            document.body.style.filter = "invert(1) hue-rotate(180deg)";
+        }
+    });
     </script>
-            const btn = document.getElementById('theme-toggle');
-btn.addEventListener('click', () => {
-    if(document.body.style.filter === "invert(1) hue-rotate(180deg)") {
-        document.body.style.filter = "none";
-    } else {
-        document.body.style.filter = "invert(1) hue-rotate(180deg)";
-    }
-});
 </body>
 </html>
