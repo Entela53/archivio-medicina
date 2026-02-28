@@ -155,70 +155,36 @@ input#searchInput::placeholder {
                 <div style="margin-bottom: 20px;">
     <input type="text" id="searchInput" placeholder="Cerca materiale..." style="width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.9); font-size: 16px; outline: none; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
 </div>
-                <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" class="button neon-glass-button">
-    <div class="glass-reflection"></div>
-    <i class="fas fa-book-medical"></i> Unitutor Zanichelli
+              <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" 
+   style="display: flex !important; align-items: center; justify-content: center; min-height: 70px; width: 90%; margin: 15px auto; padding: 10px 20px; border-radius: 18px; text-decoration: none !important; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.4) !important; box-shadow: 0 10px 25px rgba(0,0,0,0.3) !important;
+   background: linear-gradient(90deg, #003366 0%, #00aaff 100%) !important;">
+    
+    <div class="shimmer-line"></div>
+
+    <i class="fas fa-book-medical" style="color: white !important; font-size: 24px; margin-right: 15px; z-index: 2;"></i>
+    
+    <span style="color: white !important; font-size: 19px !important; font-weight: 900 !important; text-transform: uppercase; letter-spacing: 1px; z-index: 2; text-align: center;">
+        Unitutor Zanichelli
+    </span>
+
+    <style>
+        .shimmer-line {
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: moveShine 3s infinite linear;
+            z-index: 1;
+        }
+        @keyframes moveShine {
+            0% { left: -150%; }
+            100% { left: 150%; }
+        }
+    </style>
 </a>
-
-<style>
-.neon-glass-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 15px 25px;
-    margin: 20px auto;
-    width: 85%;
-    border-radius: 20px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 17px;
-    color: white !important;
-    position: relative;
-    overflow: hidden;
-    
-    /* NGJYRA NEON ZAFIR ME TRANSPARENCE XHAMI */
-    background: linear-gradient(135deg, rgba(0, 114, 255, 0.7), rgba(0, 198, 255, 0.5)) !important;
-    
-    /* EFEKTI I FLURIT (XHAMIT) */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    
-    /* KORNIZA E SHNDRITSHME SI PASQYRE */
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    
-    /* HIJA QE E BEN TE LUNDROJE MBI UJE */
-    box-shadow: 0 15px 35px rgba(0, 114, 255, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2) !important;
-    
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* REFLEKSI I DRITES SIPER XHAMIT */
-.glass-reflection {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-}
-
-/* ANIMACIONI KUR E PREK (HOVER) */
-.neon-glass-button:hover {
-    transform: translateY(-10px) scale(1.02); /* Lundrimi lart */
-    box-shadow: 0 20px 40px rgba(0, 114, 255, 0.5) !important;
-    background: linear-gradient(135deg, rgba(0, 114, 255, 0.9), rgba(0, 198, 255, 0.7)) !important;
-    border: 1px solid rgba(255, 255, 255, 0.8) !important;
-}
-
-/* IKONA ME SHKELQIM */
-.neon-glass-button i {
-    margin-right: 12px;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
-}
-</style>      
+  
                 <a href="https://mega.nz/folder/xqZzAByS#5CEmKAuqn7b21_LBF1f2_g" target="_blank" class="button" style="background: linear-gradient(135deg, #2ecc71, #27ae60); margin-top: 15px; box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4); border: 1px solid rgba(255, 255, 255, 0.3); font-weight: bold; text-transform: uppercase; font-size: 18px;">
     <i class="fas fa-cube"></i> Interactive 3D Anatomy
 </a>    
