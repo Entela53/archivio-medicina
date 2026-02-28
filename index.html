@@ -101,6 +101,17 @@
         .visitor-counter { margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
         .visitor-counter p { font-size: 10px; color: var(--email-color); margin-bottom: 8px; font-weight: bold; }
     /* --- STILI I RI VIVID GLASSMORPHISM --- */
+            /* ANIMACIONI I LUNDRIMIT PER BUTONAT E RINJ */
+a[style*="display: flex"] {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+a[style*="display: flex"]:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4) !important;
+    filter: brightness(1.1);
+}
+
 body {
     background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 50%, #ff00cc 100%) !important;
     background-attachment: fixed !important;
