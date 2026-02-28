@@ -119,35 +119,25 @@
         <h1>📚🩺 MedHub: Biblioteca digitale <br> Medicina e Chirurgia <br> (Unizkm-Tor Vergata/Rome)</h1>
         <div class="author" style="margin-bottom: 25px;">
     Project by <strong>ENTELA BOÇI (MD)</strong>
-                <div style="background: linear-gradient(135deg, #e0c3fc 0%, #a777e3 100%); 
-            padding: 22px; 
-            border-radius: 20px; 
-            margin: 25px auto; 
-            max-width: 85%; 
-            box-shadow: 0 8px 25px rgba(167, 119, 227, 0.3); 
-            border: 1px solid rgba(255,255,255,0.4);
-            text-align: center;">
-    
-    <p style="color: white; font-style: italic; font-size: 17px; line-height: 1.6; margin: 0; font-weight: 500; font-family: 'Georgia', serif;">
-        "Ovunque l'arte della medicina sia amata, vi è anche un amore per l'umanità."
-    </p>
-    
-    <div style="width: 40px; height: 2px; background: white; margin: 12px auto; opacity: 0.6;"></div>
-    
-    <span style="color: rgba(255,255,255,0.9); font-size: 14px; display: block; font-weight: bold; letter-spacing: 1px;">
-        — IPPOCRATE
-    </span>
-</div>
-    <div style="font-weight: bold; letter-spacing: 2px; color: var(--text-color); margin-top: 5px; font-size: 15px; opacity: 0.8;">
-    </div>
-</div>
+                const quotes = [
+    { text: "Ovunque l'arte della medicina sia amata, vi è anche un amore per l'umanità.", author: "IPPOCRATE" },
+    { text: "Il medico cura, la natura guarisce.", author: "IPPOCRATE" },
+    { text: "La sapienza è figlia dell'esperienza.", author: "LEONARDO DA VINCI" },
+    { text: "Non è quanto si vive, ma come si vive che conta.", author: "SENECA" },
+    { text: "Il miglior medico è anche un filosofo.", author: "GALENO" },
+    { text: "La medicina è un'arte sociale per eccellenza.", author: "RUDOLF VIRCHOW" }
+];
 
+function setRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById('medical-quote').innerText = `"${quotes[randomIndex].text}"`;
+    document.getElementById('quote-author').innerText = `— ${quotes[randomIndex].author}`;
+}
 
-        
-        <input type="text" id="searchInput" onkeyup="filterButtons()" placeholder="Cerca materiale...">
+// Thirr funksionin që të shfaqet thënia sapo hapet faqja
+setRandomQuote();
 
-        <div id="buttonList">
-        <a href="https://mega.nz/folder/MnQlXCxL#t-f1qF_e2dzC81VdmQzL6g" target="_blank" class="button" style="background: linear-gradient(135deg, #1e3c72, #2a5298, #00b4d8); margin-top: 15px;">
+                #00b4d8); margin-top: 15px;">
     <i class="fas fa-book-medical"></i> Unitutor Zanichelli
 </a>
             <a href="https://mega.nz/folder/xqZzAByS#5CEmKAuqn7b21_LBF1f2_g" class="button" style="background: linear-gradient(135deg, #134e5e, #38b000); margin-top: 15px;" target="_blank">
