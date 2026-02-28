@@ -100,6 +100,32 @@
         
         .visitor-counter { margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
         .visitor-counter p { font-size: 10px; color: var(--email-color); margin-bottom: 8px; font-weight: bold; }
+    /* --- STILI I RI VIVID GLASSMORPHISM --- */
+body {
+    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 50%, #ff00cc 100%) !important;
+    background-attachment: fixed !important;
+}
+
+/* KUTIA E IPPOKRATIT DHE KERKIMIT ME REFLEKS PASQYRE */
+.quote-container, .search-container, input#searchInput {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* SHKREHJA E IPPOKRATIT - TEKST ME GLOW */
+.quote-container p {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+    color: #ffffff !important;
+}
+
+/* SEARCH INPUT PLACEHOLDER */
+input#searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
     </style>
 </head>
 <body>
