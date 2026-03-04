@@ -634,14 +634,20 @@ input#searchInput::placeholder {
         }
         setGreeting();
 
-        function filterButtons() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let buttons = document.getElementById('buttonList').getElementsByTagName('a');
-            for (let i = 0; i < buttons.length; i++) {
-                let text = buttons[i].textContent || buttons[i].innerText;
-                buttons[i].style.display = text.toLowerCase().includes(input) ? "" : "none";
-            }
+        // KODI I RI PER KERKIMIN
+document.getElementById('searchInput').addEventListener('keyup', function() {
+    let filter = this.value.toLowerCase();
+    let buttons = document.querySelectorAll('a[style*="display: flex"]');
+
+    buttons.forEach(function(button) {
+        let text = button.textContent || button.innerText;
+        if (text.toLowerCase().includes(filter)) {
+            button.style.setProperty('display', 'flex', 'important');
+        } else {
+            button.style.setProperty('display', 'none', 'important');
         }
+    });
+});
 
         function shareLink() {
             const shareData = { title: 'MedHub', text: 'Guarda questa biblioteca!', url: window.location.href };
