@@ -694,44 +694,33 @@ input#searchInput::placeholder {
     </a>
 </div>
             
-            <div style="
-  text-align:center;
-  margin-top:20px;
-  padding:15px;
-  border-radius:15px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  width: 80%;
-  margin-left:auto;
-  margin-right:auto;
-">
-  <p style="
-    color:#4834d4;
-    font-weight:800;
-    font-size:14px;
-    letter-spacing:1px;
-    margin-bottom:10px;
-  ">
+            <div style="text-align:center; margin-top:10px;">
+  <span style="font-size:12px; color:#4834d4; font-weight:700;">
     VISITE TOTALI
-  </p>
-
-  <p id="visits" style="
-    font-size:28px;
-    font-weight:bold;
-    color:#222;
-    letter-spacing:3px;
-  ">
-    1520
-  </p>
+  </span>
+  <br>
+  <span id="visits" style="font-size:16px; font-weight:600; color:#222;">
+    00000
+  </span>
 </div>
 
 <script>
 fetch('https://api.countapi.xyz/hit/entela-medhub/visits')
   .then(res => res.json())
   .then(res => {
-    let num = res.value.toString().padStart(5, '0');
-    document.getElementById('visits').innerText = num;
+    let finalValue = res.value;
+    let current = 0;
+    let speed = Math.max(1, Math.floor(finalValue / 50));
+
+    let interval = setInterval(() => {
+      current += speed;
+      if (current >= finalValue) {
+        current = finalValue;
+        clearInterval(interval);
+      }
+      document.getElementById('visits').innerText =
+        current.toString().padStart(5, '0');
+    }, 30);
   })
   .catch(() => {
     document.getElementById('visits').innerText = "00000";
