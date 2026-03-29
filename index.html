@@ -705,7 +705,7 @@ input#searchInput::placeholder {
     VISITE TOTALI
   </span>
   <br>
-  <span id="visits" style="
+  <span id="display-visits" style="
     font-size:18px;
     font-weight:700;
     background: linear-gradient(90deg, #00c6ff, #0072ff);
@@ -716,6 +716,27 @@ input#searchInput::placeholder {
     1521
   </span>
 </div>
+
+<script>
+  // Ky është "motori" që rrit numrin tënd automatikisht
+  (function() {
+    let currentVisits = localStorage.getItem('medhub_count');
+    
+    if (!currentVisits) {
+      // Herën e parë që dikush hyn, e nisim nga numri yt bazë
+      currentVisits = 1521;
+    } else {
+      // Çdo herë tjetër që hapet faqja, i shtojmë +1
+      currentVisits = parseInt(currentVisits) + 1;
+    }
+    
+    // E ruajmë numrin e ri në memorien e shfletuesit
+    localStorage.setItem('medhub_count', currentVisits);
+    
+    // E shfaqim numrin e ri te pjesa me gradient
+    document.getElementById('display-visits').innerText = currentVisits;
+  })();
+</script>
 
     <script>
         function setGreeting() {
