@@ -718,6 +718,21 @@ input#searchInput::placeholder {
 </div>
 
 <script>
+let visits = localStorage.getItem('visits');
+
+if (!visits) {
+  visits = 0;
+}
+
+visits++;
+
+localStorage.setItem('visits', visits);
+
+document.getElementById('visits').innerText =
+  visits.toString().padStart(5, '0');
+</script>
+
+<script>
 fetch('https://api.countapi.xyz/hit/entela-medhub/visits')
   .then(res => res.json())
   .then(res => {
