@@ -705,44 +705,10 @@ input#searchInput::placeholder {
     VISITE TOTALI
   </span>
   <br>
-  <span id="visits" style="
-    font-size:18px;
-    font-weight:700;
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing:2px;
-  ">
-    1521
-  </span>
+  <img src="https://hitwebcounter.com/counter/counter.php?page=entela53medhub_v3&style=0006&nbdigits=5&type=page&initCount=1521" 
+       title="Free Counter" Alt="web counter" border="0" width="80px" style="margin-top:5px;">
 </div>
 
-<script>
-let visits = localStorage.getItem('visits');
-
-if (!visits) {
-  visits = 0;
-}
-
-visits++;
-
-localStorage.setItem('visits', visits);
-
-document.getElementById('visits').innerText =
-  visits.toString().padStart(5, '0');
-</script>
-
-<script>
-fetch('https://api.countapi.xyz/hit/entela-medhub/visits')
-  .then(res => res.json())
-  .then(res => {
-    let num = res.value.toString().padStart(5, '0');
-    document.getElementById('visits').innerText = num;
-  })
-  .catch(() => {
-    document.getElementById('visits').innerText = "1521";
-  });
-</script>
 
     <script>
         function setGreeting() {
