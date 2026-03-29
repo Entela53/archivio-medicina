@@ -695,11 +695,24 @@ input#searchInput::placeholder {
 </div>
             
             <div style="text-align:center; margin-top:10px;">
-  <span style="font-size:12px; color:#4834d4; font-weight:700;">
+  <span style="
+    font-size:12px;
+    font-weight:700;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  ">
     VISITE TOTALI
   </span>
   <br>
-  <span id="visits" style="font-size:16px; font-weight:600; color:#222;">
+  <span id="visits" style="
+    font-size:18px;
+    font-weight:700;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing:2px;
+  ">
     00000
   </span>
 </div>
@@ -708,19 +721,8 @@ input#searchInput::placeholder {
 fetch('https://api.countapi.xyz/hit/entela-medhub/visits')
   .then(res => res.json())
   .then(res => {
-    let finalValue = res.value;
-    let current = 0;
-    let speed = Math.max(1, Math.floor(finalValue / 50));
-
-    let interval = setInterval(() => {
-      current += speed;
-      if (current >= finalValue) {
-        current = finalValue;
-        clearInterval(interval);
-      }
-      document.getElementById('visits').innerText =
-        current.toString().padStart(5, '0');
-    }, 30);
+    let num = res.value.toString().padStart(5, '0');
+    document.getElementById('visits').innerText = num;
   })
   .catch(() => {
     document.getElementById('visits').innerText = "00000";
