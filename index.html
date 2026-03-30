@@ -765,9 +765,9 @@ document.getElementById('searchInput').addEventListener('keyup', function() {
 });
 
         function shareLink() {
-            const shareData = { title: 'MedHub', text: 'Guarda questa biblioteca!', url: window.location.href };
+            const shareData = { title: 'MedHub', text: '', url: window.location.href };
             if (navigator.share) { navigator.share(shareData); } 
-            else { window.open('https://api.whatsapp.com/send?text=' + window.location.href, '_blank'); }
+            else { window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent('MedHub: ') + window.location.href, '_blank'); }
         }
             
                 const btn = document.getElementById('theme-toggle');
