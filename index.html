@@ -194,18 +194,23 @@ input#searchInput::placeholder {
     pointer-events: none;
     opacity: 0.95;
 
-    animation: floatAngel 4s ease-in-out infinite;
+    animation: angelBreath 5s ease-in-out infinite;
 }
 
-@keyframes floatAngel {
+@keyframes angelBreath {
     0% {
-        transform: translateY(0px);
+        transform: translateY(0px) scale(1);
+        opacity: 0.92;
     }
+
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-8px) scale(1.04);
+        opacity: 1;
     }
+
     100% {
-        transform: translateY(0px);
+        transform: translateY(0px) scale(1);
+        opacity: 0.92;
     }
 }
     </style>
