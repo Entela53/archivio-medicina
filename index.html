@@ -185,11 +185,33 @@ input#searchInput::placeholder {
     font-family: 'Inter', sans-serif;
     text-shadow: 0 0 10px #00f2ff;
 }
-   
+   /* ANGEL IMAGE TOP RIGHT */
+.angel-img {
+    position: fixed;
+    top: -60px;
+    right: -60px;
+    width: 180px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.95;
+}
+
+/* efekt lëvizje */
+@keyframes angelFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.angel-img {
+    animation: angelFloat 6s ease-in-out infinite;
+}
     </style>
 </head>
 <body>
-    <div id="loader-wrapper">
+
+<img src="Cherubin.png" class="angel-img" alt="angel">
+
+<div id="loader-wrapper">
     <div style="position: relative; display: flex; justify-content: center; align-items: center;">
         <div class="spinner"></div>
         <i class="fas fa-heartbeat" style="position: absolute; color: #ff4d4d; font-size: 24px; animation: heartbeat 1.5s ease-out infinite;"></i>
