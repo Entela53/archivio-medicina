@@ -193,6 +193,20 @@ input#searchInput::placeholder {
     z-index: 10000;
     pointer-events: none;
     opacity: 0.95;
+
+    animation: floatAngel 4s ease-in-out infinite;
+}
+
+@keyframes floatAngel {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
     </style>
 </head>
