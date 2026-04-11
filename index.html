@@ -189,27 +189,47 @@ input#searchInput::placeholder {
     position: fixed;
     top: 15px;
     right: 15px;
-    width: 120px;
+    width: 90px; /* më i vogël */
     z-index: 10000;
     pointer-events: none;
     opacity: 0.95;
 
-    animation: angelBreath 5s ease-in-out infinite;
+    /* animacioni kryesor */
+    animation: angelFloat 6s ease-in-out infinite, shimmer 3s ease-in-out infinite;
+
+    /* glow bazë */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))
+            drop-shadow(0 0 18px rgba(180, 200, 255, 0.6));
 }
 
-@keyframes angelBreath {
+/* FLOAT + BREATH */
+@keyframes angelFloat {
     0% {
         transform: translateY(0px) scale(1);
-        opacity: 0.92;
     }
-
     50% {
-        transform: translateY(-8px) scale(1.04);
-        opacity: 1;
+        transform: translateY(-10px) scale(1.05);
     }
-
     100% {
         transform: translateY(0px) scale(1);
+    }
+}
+
+/* SHIMMER / Dritë që kalon */
+@keyframes shimmer {
+    0% {
+        filter: drop-shadow(0 0 6px rgba(255,255,255,0.6))
+                drop-shadow(0 0 12px rgba(180,200,255,0.4));
+        opacity: 0.90;
+    }
+    50% {
+        filter: drop-shadow(0 0 14px rgba(255,255,255,1))
+                drop-shadow(0 0 28px rgba(160,180,255,0.9));
+        opacity: 1;
+    }
+    100% {
+        filter: drop-shadow(0 0 6px rgba(255,255,255,0.6))
+                drop-shadow(0 0 12px rgba(180,200,255,0.4));
         opacity: 0.92;
     }
 }
