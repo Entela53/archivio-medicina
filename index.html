@@ -189,22 +189,27 @@ input#searchInput::placeholder {
     position: fixed;
     top: 15px;
     right: 15px;
-    width: 90px; /* më i vogël */
+    width: 90px;
     z-index: 10000;
     pointer-events: none;
     opacity: 0.95;
 
-    /* vetëm animacioni i lëvizjes */
+    /* FLOAT + BREATHE */
     animation: angelFloat 6s ease-in-out infinite;
 }
 
-/* FLOAT */
 @keyframes angelFloat {
     0% {
         transform: translateY(0px) scale(1);
     }
+    25% {
+        transform: translateY(-5px) scale(1.02);
+    }
     50% {
         transform: translateY(-10px) scale(1.05);
+    }
+    75% {
+        transform: translateY(-5px) scale(1.02);
     }
     100% {
         transform: translateY(0px) scale(1);
