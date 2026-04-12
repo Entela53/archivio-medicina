@@ -194,10 +194,10 @@ input#searchInput::placeholder {
     pointer-events: none;
     opacity: 0.95;
 
-    /* animacioni kryesor */
-    animation: angelFloat 6s ease-in-out infinite, shimmer 3s ease-in-out infinite;
+    /* vetëm animacioni i lëvizjes */
+    animation: angelFloat 6s ease-in-out infinite;
 
-    /* glow bazë */
+    /* glow bazë (statik) */
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))
             drop-shadow(0 0 18px rgba(180, 200, 255, 0.6));
 }
@@ -212,25 +212,6 @@ input#searchInput::placeholder {
     }
     100% {
         transform: translateY(0px) scale(1);
-    }
-}
-
-/* SHIMMER / Dritë që kalon */
-@keyframes shimmer {
-    0% {
-        filter: drop-shadow(0 0 6px rgba(255,255,255,0.6))
-                drop-shadow(0 0 12px rgba(180,200,255,0.4));
-        opacity: 0.90;
-    }
-    50% {
-        filter: drop-shadow(0 0 14px rgba(255,255,255,1))
-                drop-shadow(0 0 28px rgba(160,180,255,0.9));
-        opacity: 1;
-    }
-    100% {
-        filter: drop-shadow(0 0 6px rgba(255,255,255,0.6))
-                drop-shadow(0 0 12px rgba(180,200,255,0.4));
-        opacity: 0.92;
     }
 }
     </style>
